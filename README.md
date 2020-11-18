@@ -1,1 +1,3 @@
-# collaborations-with-yafi
+# Vue Todo App
+
+Built using Tailwind
