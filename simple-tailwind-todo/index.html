@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Simple Tailwind Todo</title>
+</head>
+<body class="bg-gray-200">
+    <div id="app">
+        <div class="font-bold text-center text-3xl text-gray-700 mt-24 mb-12">
+            Simple Tailwind Todo App
+        </div>
+        <div class="max-w-2xl mx-auto border px-2 py-1 rounded shadow bg-gray-100">
+            <input type="text" v-on:submit.prevent="addTask" placeholder="type a todo and press enter to save" class="w-full text-lg border-b mb-2">
+            <div v-for="todo in todos" class="flex w-full space-between gap-4">
+                <div>
+                    img
+                </div>
+                <div class="w-full">
+                    {{todo.title}}
+                </div>
+                <div>img</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            todos: [
+                {
+                    title: "clean apartment",
+                    completed: false
+                },
+                {
+                    title: "get groceries",
+                    completed: false
+                },
+                {
+                    title: "cook dinner",
+                    completed: false
+                },
+                {
+                    title: "set plates",
+                    completed: false
+                },
+            ]
+        },
+    })
+</script>
+</html>
