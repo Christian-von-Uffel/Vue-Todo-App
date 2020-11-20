@@ -18,5 +18,15 @@ export default {
 			msg: "Welcome to Your Vue.js App",
 		};
 	},
+	methods:{
+		addTask(){
+			const newTodoTitle = this.newTodo.trim();
+			if (!newTodoTitle) {
+				return;
+			}
+			this.todos.push({ title: newTodoTitle, completed: false });
+			this.newTodo = '';
+        },
+	}
 };
 </script>
