@@ -21,7 +21,10 @@ import completedTasks from './components/completed-tasks.vue';
 export default {
   	name: "app",
 	components: {
-		'todo-items': Items
+		'new-task-input-form': NewTaskInputForm,
+		'incomplete-tasks': incompleteTasks,
+		'completed-tasks': completedTasks,
+		'todo-items': Items,
 	}
 };
 </script>
