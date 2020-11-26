@@ -14,6 +14,9 @@
 
 <script>
 import Items from './components/Items.vue';
+import NewTaskInputForm from './components/NewTaskInputForm.vue';
+import incompleteTasks from './components/incomplete-tasks.vue';
+import completedTasks from './components/completed-tasks.vue';
 
 export default {
   	name: "app",
