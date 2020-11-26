@@ -5,8 +5,9 @@
         </div>
         <div class="max-w-2xl mx-auto border px-2 py-1 rounded shadow bg-gray-100">
             <new-task-input-form></new-task-input-form>
+			<incomplete-tasks></incomplete-tasks>
+			<completed-tasks></completed-tasks>
 			<todo-items></todo-items>
-
         </div>
 	</div>
 </template>
