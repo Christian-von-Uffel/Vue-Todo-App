@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div class="flex w-full space-between gap-4 text-lg items-center border-b">
             <div class="h-8 w-8 m-2 rounded-full flex-shrink-0 bg-gray-400 hover:bg-gray-500 border border-gray-500 hover:border-gray-600 transition duration-150 cursor-pointer" v-on:click="toggleComplete">
             </div>
             <div v-if="!todo.completed" class="w-full">
