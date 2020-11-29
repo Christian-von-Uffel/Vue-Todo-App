@@ -1,5 +1,4 @@
 <template>
-
 	<div>
 		<div v-for="(todo,id) in todos" :key="id" class="flex w-full space-between gap-4 text-lg items-center border-b">
 
