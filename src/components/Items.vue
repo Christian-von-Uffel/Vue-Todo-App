@@ -1,8 +1,11 @@
 <template>
 	<div>
-		<div v-for="(todo,id) in todos" :key="id">
+		<div v-for="(todo, id) in todos" :key="id">
 
-			<todo-item :todo="todo"></todo-item>
+			<todo-item  
+				:todo="{...todo, id}" 
+				@remove="$emit('remove', id)">
+			</todo-item>
 
 		</div>
 	</div>
@@ -13,34 +16,17 @@
 	import Item from './Item.vue';
 
     export default{
+		props: ['todos'],
+		computed: {
+			completed() {
+				// Return completed todos
+			},
+			incomplete() {
+				// Return incomplete todos
+			}
+		},
 		components: {
 			'todo-item': Item
 		},
-        data() {
-            return {
-				todos: [
-					{
-						title: "clean apartment",
-						completed: false
-					},
-					{
-						title: "get groceries",
-						completed: false
-					},
-					{
-						title: "cook dinner",
-						completed: false
-					},
-					{
-						title: "set plates",
-						completed: false
-					},
-					{
-						title: "think of dinner ideas",
-						completed: true
-					},
-				]
-			}
-        }
     }
 </script>
