@@ -11,7 +11,7 @@
             >
                 {{todo.title}}
             </div>
-            <div @click="$emit('remove')" class="text-gray-700 cursor-pointer p-1 px-2">✗</div>
+            <div @click="$emit('remove')" class="text-gray-700 cursor-pointer p-1 px-2">X</div>
         </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="font-bold text-center text-3xl text-gray-700 mt-24 mb-12">
-            Simple Tailwind Todo App
+            Simple Vue/Tailwind Todo App
         </div>
         <div class="max-w-2xl mx-auto border px-2 py-1 rounded shadow bg-gray-100">
             <new-task-input-form 
@@ -25,41 +25,32 @@ export default {
 	data() {
 		return {
 			newTodo: '',
-			todosList: [
-				{
-					title: "clean apartment",
-					completed: false
-				},
-				{
-					title: "get groceries",
-					completed: false
-				},
-				{
-					title: "cook dinner",
-					completed: false
-				},
-				{
-					title: "set plates",
-					completed: false
-				},
-				{
-					title: "think of dinner ideas",
-					completed: true
-				},
-			]
+			todosList: []
 		}
 	},
 	methods: {
 		addTodo() {
-			this.todosList.push({ title: this.newTodo, completed: false });
+			const newTodo = { title: this.newTodo, completed: false };
+			this.todosList.push(newTodo);
+
+			localStorage.setItem('todos', JSON.stringify(this.todosList));
 		},
 		removeTodo(id) {
 			this.todosList.splice(id, 1);
+
+			localStorage.setItem('todos', JSON.stringify(this.todosList));
 		}
 	},
 	components: {
 		'new-task-input-form': NewTaskInputForm,
 		'todo-items': Items,
+	},
+	created() {
+		const storageTodos = JSON.parse(localStorage.getItem('todos'));
+
+		if(storageTodos) {
+			this.todosList = storageTodos;
+		}
 	}
 };
 </script>
