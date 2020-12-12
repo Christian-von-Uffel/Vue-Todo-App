@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit.prevent="handleAdd" class="flex">
+    <form v-on:submit.prevent="$emit('add')" class="flex">
         <input 
             type="text" 
             v-model="input" 
@@ -24,11 +24,6 @@
                 set(val) {
                     this.$emit('input', val);
                 }
-            }
-        },
-        methods: {
-            handleAdd() {
-                this.$emit('add', this.value);
             }
         }
     }
