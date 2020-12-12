@@ -15,11 +15,11 @@
 <script>
 
     export default {
-        props: ['newTodo'],
+        props: ['value'],
         computed: {
             input: {
                 get() {
-                    return this.newTodo;
+                    return this.value;
                 },
                 set(val) {
                     this.$emit('input', val);
@@ -28,8 +28,7 @@
         },
         methods: {
             handleAdd() {
-                this.$emit('add', this.newTodo);
-                this.newTodo = '';
+                this.$emit('add', this.value);
             }
         }
     }

@@ -34,6 +34,8 @@ export default {
 			this.todosList.push(newTodo);
 
 			localStorage.setItem('todos', JSON.stringify(this.todosList));
+
+			this.newTodo = '';
 		},
 		removeTodo(id) {
 			this.todosList.splice(id, 1);
