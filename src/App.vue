@@ -28,31 +28,29 @@ export default {
 			todosList: []
 		}
 	},
+	mounted(){
+		if(localStorage.VueTodos){
+			this.todosList = JSON.parse(localStorage.getItem("VueTodos"));
+		}
+	},
+	watch:{
+		todosList(){
+			localStorage.setItem('VueTodos', JSON.stringify(this.todosList));
+		}
+	},
 	methods: {
 		addTodo() {
 			const newTodo = { title: this.newTodo, completed: false };
 			this.todosList.push(newTodo);
-
-			localStorage.setItem('todos', JSON.stringify(this.todosList));
-
 			this.newTodo = '';
 		},
 		removeTodo(id) {
 			this.todosList.splice(id, 1);
-
-			localStorage.setItem('todos', JSON.stringify(this.todosList));
 		}
 	},
 	components: {
 		'new-task-input-form': NewTaskInputForm,
 		'todo-items': Items,
 	},
-	created() {
-		const storageTodos = JSON.parse(localStorage.getItem('todos'));
-
-		if(storageTodos) {
-			this.todosList = storageTodos;
-		}
-	}
 };
 </script>
